@@ -1,0 +1,18 @@
+# Render.com Blueprint: сайтты интернетке шығару (HTTPS автоматты)
+services:
+  - type: web
+    name: baipket-alumni
+    runtime: docker
+    plan: starter
+    disk: { name: data, mountPath: /data, sizeGB: 1 }
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+      - key: CONTACT_PHONE
+        value: "+77066088080"
+      - key: AMO_DOMAIN
+        value: aksamowhitelabelkz.amocrm.ru
+      - key: AMO_TOKEN
+        sync: false

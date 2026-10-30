@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baipket Alumni: нұсқаулық</title>
+<style>
+:root{--bg:#fdf8f3;--ink:#161616;--mut:#6f665c;--acc:#e24a2c;--line:#eadfd2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:32px 18px 80px}
+h1{font-size:34px;letter-spacing:-.03em;margin:0 0 6px}h2{font-size:24px;letter-spacing:-.02em;margin:44px 0 6px}h3{font-size:17px;margin:22px 0 6px}
+p{margin:8px 0}.mut{color:var(--mut)}.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;background:var(--ink);color:#fff;border-radius:99px;padding:3px 10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:14px 0}
+ol,ul{padding-left:22px}li{margin:6px 0}
+code{background:#f3ebe1;border-radius:6px;padding:2px 6px;font-size:14px}
+pre{background:#161616;color:#f5efe7;border-radius:14px;padding:14px 16px;overflow:auto;font-size:14px;line-height:1.5;margin:10px 0}
+.warn{background:#fff4e8;border-color:#f2cfb0}.ok{background:#eefaf2;border-color:#bfe6cf}
+a{color:var(--acc)}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border-top:1px solid var(--line);padding:9px 8px;text-align:left;vertical-align:top}
+</style></head><body><main>
+<span class="tag">BAIPKET ALUMNI CHALLENGE</span>
+<h1>Нұсқаулық: іске қосудан күнделікті жұмысқа дейін</h1>
+<p class="mut">Қысқа және нақты. Қадамдар ретімен жүреді. Терминалсыз, тек батырма басу арқылы тұрақты сайт жасау жолы 2-бөлімде.</p>
+
+<h2>0. Қазір не бар</h2>
+<div class="card ok"><ul>
+<li><b>Түлектің беті:</b> тіркелу, Alumni Pass картасы, XP, жол картасы, дос қосу, WhatsApp-қа дайын хабар, 2 дос қосқанда екі модуль ашылады.</li>
+<li><b>Достың беті</b> (<code>/r/КОД</code>): Baipket туралы экскурсия, 10 поток, қауымдастық, нөмір қалдыру немесе WhatsApp-қа жазу. Баға жоқ.</li>
+<li><b>Админ</b> (<code>/admin</code>): лидтер, статус, бонус, «Рақмет» батырмасы, мәтіндерді өзгерту, CSV.</li>
+<li><b>amoCRM:</b> лид «Baipket • Рефералдар» воронкасына автоматты түседі, статус екі жаққа жаңарады.</li>
+</ul></div>
+<div class="card warn"><b>Не жоқ / өзіңіз істейтін нәрсе:</b>
+<ul><li>Сайтты интернетке шығару (1 немесе 2-бөлім).</li><li>amoCRM токені мен webhook (3-бөлім).</li><li>Нақты кейстер мен фото (админде «Baipket туралы»).</li><li>WhatsApp хабарын автоматты жіберу жоқ: түлек «Жіберу» батырмасын басады.</li></ul></div>
+
+<h2>1. Бүгін тест үшін (уақытша сілтеме)</h2>
+<p>Тек сыналатын уақытта. Макбук ұйықтаса, сілтеме өшеді, әр іске қосқанда сілтеме жаңа болады.</p>
+<pre>cd ~/Downloads/baipket-alumni
+ADMIN_PASSWORD=ұзын-пароль bash share.sh</pre>
+<p>Terminal-да <code>Достарға жіберілетін сайт: https://сөз-сөз-сөз.trycloudflare.com</code> деген жол шығады. <b>Осы сілтемені</b> ашыңыз. <code>trycloudflare.com</code> сайтының өзі (Cloudflare жарнамасы) сіздікі емес.</p>
+<p>Админ: сол сілтеме + <code>/admin</code>.</p>
+
+<h2>2. Тұрақты сайт (терминалсыз)</h2>
+<p>Мақсат: сайт 24 сағат жұмыс істесін, макбук өшсе де. Шамамен 20–30 минут. Тіркеу керек: GitHub және Render. Render-дегі жоспардың бағасын сайттан тексеріңіз (деректер сақталатын диск ақылы жоспарда ғана бар).</p>
+<h3>2.1 Кодты GitHub-қа салу</h3>
+<ol>
+<li>github.com сайтында тіркеліңіз → жоғарғы оң жақта <b>+ → New repository</b>. Аты: <code>baipket-alumni</code>. <b>Private</b> таңдаңыз → Create.</li>
+<li>Макбукте <code>baipket-alumni</code> папкасын ашыңыз. Ішіндегі <code>bin</code> папкасы болса, өшіріңіз (ол 19 МБ, керек емес). <code>data</code> папкасын да өшіріңіз.</li>
+<li>GitHub бетінде <b>uploading an existing file</b> сілтемесін басыңыз. Папканың <b>ішіндегі бәрін</b> (server.mjs, public, lib, Dockerfile, render.yaml…) тінтуірмен сүйреп тастаңыз → <b>Commit changes</b>.</li>
+</ol>
+<h3>2.2 Render-де іске қосу</h3>
+<ol>
+<li>render.com → тіркеліңіз (GitHub-пен кіруге болады).</li>
+<li><b>New → Blueprint</b> → GitHub репозиторийін таңдаңыз. Render <code>render.yaml</code> файлын өзі оқиды.</li>
+<li>Сұралған мәндерді толтырыңыз:
+<table><tr><td><code>ADMIN_PASSWORD</code></td><td>ұзын құпия пароль (админге кіру)</td></tr>
+<tr><td><code>PUBLIC_URL</code></td><td>қазірше бос қалдырмаңыз: Render берген мекенжайды (<code>https://....onrender.com</code>) жазыңыз, сайт іске қосылған соң</td></tr>
+<tr><td><code>AMO_TOKEN</code></td><td>3-бөлімнен алған токен (қазір бос қалдыруға болады)</td></tr></table></li>
+<li>Deploy аяқталған соң сайт мекенжайы шығады. <code>PUBLIC_URL</code> дұрыс екенін тексеріңіз. Сәйкес келмесе, Environment бөлімінде өзгертіп, қайта іске қосыңыз.</li>
+<li><b>Диск (Disk)</b> міндетті: <code>/data</code> жолы. Онсыз сервер қайта қосылғанда түлектер мен лидтер жоғалады.</li>
+</ol>
+<h3>2.3 Өз домен</h3>
+<ol>
+<li>Домен сатып алыңыз (ps.kz, hoster.kz, Namecheap, Cloudflare). Бағасын сайттан тексеріңіз.</li>
+<li>Render → сервис → <b>Settings → Custom Domains</b> → доменіңізді қосыңыз. Render көрсететін DNS жазбаларын домен тіркеушісінде қойыңыз.</li>
+<li>HTTPS автоматты қосылады. Сосын <code>PUBLIC_URL=https://сіздің-доменіңіз</code> етіп өзгертіңіз.</li>
+</ol>
+<p class="mut">Render интерфейсіндегі атаулар өзгеруі мүмкін. Бір қадамда жолыңыз табылмаса, экранның суретін жіберіңіз.</p>
+
+<h2>3. amoCRM қосу</h2>
+<ol>
+<li>amoCRM → <b>Баптаулар → Интеграциялар → Интеграция құру → Жеке интеграция</b>.</li>
+<li><b>Кілттер мен қолжетімділік</b> → <b>Ұзақ мерзімді токен жасау</b> (мерзімін ұзақ етіп). Токенді көшіріп алыңыз, ол бір рет қана көрсетіледі. <b>Токенді ешкімге, оның ішінде маған да, жібермеңіз.</b></li>
+<li>Render → Environment → <code>AMO_DOMAIN=aksamowhitelabelkz.amocrm.ru</code> және <code>AMO_TOKEN=токен</code>. Сақтап, қайта іске қосыңыз.</li>
+<li>Сайт админі → «amoCRM» блогы → <b>Воронканы құру/тексеру</b>. Сонда «Baipket • Рефералдар» воронкасы пайда болады.</li>
+<li><b>Екі жақты байланыс:</b> админдегі <b>webhook мекенжайын</b> көшіріп, amoCRM-де «сделка статусы өзгергенде» оқиғасына қойыңыз. Енді сделка «Успешно реализовано» болса, сайтта «төлем расталды» болады.</li>
+<li><b>Тест:</b> өз қосымша нөміріңізбен лид жасаңыз. Ол amoCRM-де воронкада көрінуі керек.</li>
+</ol>
+
+<h2>4. WhatsApp → amoCRM</h2>
+<ul><li>Достың беті «WhatsApp-та жазу» батырмасын көрсетеді. Нөмір <code>CONTACT_PHONE</code> env мәнінен алынады (қазір +7 706 608 80 80, қате болса, өзгертіңіз).</li>
+<li>Сол нөмір amoCRM-ге WhatsApp интеграциясымен қосылса, хабар лид болып түседі. Хабарда «шақыруымен» сөзі бар, оны amoCRM автоматизациясымен «Рефералдар» воронкасына бағыттауға болады.</li>
+<li>WhatsApp хабарын автоматты жіберу керек болса, WhatsApp Business API (Wazzup сияқты ақылы сервис) қосу керек. Қазір түлек «Жіберу» батырмасын өзі басады.</li></ul>
+
+<h2>5. Күнделікті жұмыс (админ)</h2>
+<p>Админ: <code>сайт/admin</code>. Пароль: <code>ADMIN_PASSWORD</code>.</p>
+<ol>
+<li><b>Жаңа лид келді.</b> Админде және amoCRM-де көрінеді. Менеджер WhatsApp-қа жазады.</li>
+<li><b>Сөйлесу барысында</b> amoCRM-де сделканы жылжытыңыз (Байланыстық → Қызығушылық → Төлем күтеміз). Түлектің бетінде жолақ жылжиды.</li>
+<li><b>Төлем түскенде:</b> сделканы «Успешно реализовано» етіңіз. Сайтта «Төлем расталды» болады.</li>
+<li><b>Рақмет айту:</b> админде сол лидтің жанындағы <b>🙏 Рақмет</b> басыңыз, WhatsApp түлекке дайын хабармен ашылады.</li>
+<li><b>Бонус төленгенде</b> «Бонус төленді» белгісін қойыңыз. Түлек бетінде «Бонус төленді ✅» көреді.</li>
+</ol>
+<h3>Өзгертуге болатындар (админде, кодсыз)</h3>
+<ul><li>Бағалар мен бонус. Қанша дос қосқанда модуль ашылатыны.</li><li>WhatsApp хабар мәтіні. «Рақмет» мәтіні.</li><li>Модуль мәтіндері.</li><li><b>«Baipket туралы»:</b> неше поток, ұран, қауымдастық, <b>кейстер</b> (формат: <code>Аты | Кім | Нәтиже</code>). Кейстер жазылса, достың бетінде бөлім пайда болады.</li></ul>
+
+<h2>6. Тарату алдындағы тексеру</h2>
+<div class="card"><ol>
+<li>Сайт өз мекенжайымен басқа телефонда ашылады ма?</li>
+<li>Тест түлек тіркеліп, 2 дос қосқанда екі модуль ашылды ма?</li>
+<li>WhatsApp достың нөміріне дайын хабармен ашылды ма, сілтемесі <b>https://...</b> па?</li>
+<li>Сілтеме WhatsApp-та превьюмен (сурет, тақырып) көрінді ме?</li>
+<li>Лид amoCRM-де «Рефералдар» воронкасында пайда болды ма?</li>
+<li>Сделканы «Успешно реализовано» еткенде сайтта статус жаңарды ма?</li>
+<li>Админде «🙏 Рақмет» батырмасы WhatsApp-ты ашты ма?</li>
+<li>Құпиялық мәтінін заңгер немесе жауапты адам тексерді ме? (Қазіргі мәтін қысқа үлгі.)</li>
+<li>Нақты кейстер мен фото қосылды ма?</li>
+</ol></div>
+
+<h2>7. Ақау болса</h2>
+<table>
+<tr><th>Белгі</th><th>Себеп / шешім</th></tr>
+<tr><td>Сілтеме достың телефонында ашылмайды</td><td>Сілтеме <code>localhost</code> болып тұр. <code>PUBLIC_URL</code> немесе share.sh сілтемесін тексеріңіз.</td></tr>
+<tr><td>«Қате пароль»</td><td>Сервер қайта қосылғанда ғана пароль жаңарады. Дұрыс <code>ADMIN_PASSWORD</code> қойылғанын тексеріңіз.</td></tr>
+<tr><td>Лид amoCRM-ге түспейді</td><td>Админде CRM бағанында <code>error</code> жазуын қараңыз: токен, домен. «Жіберілмегендерді қайта жіберу» басыңыз. Сайт әр минут сайын өзі де қайталайды.</td></tr>
+<tr><td>Деректер жоғалды</td><td>Диск (<code>/data</code>) қосылмаған. 2.2-тегі 5-қадамды орындаңыз.</td></tr>
+<tr><td>Статус amoCRM-нен сайтқа келмейді</td><td>Webhook мекенжайы қойылмаған, немесе «Воронканы құру/тексеру» басылмаған.</td></tr>
+</table>
+<p class="mut" style="margin-top:40px">Нақты amoCRM және Render аккаунттарында мен тексере алмадым. Бірінші нақты лид пен төлем статусын өзіңіз бақылап көріңіз.</p>
+</main></body></html>
