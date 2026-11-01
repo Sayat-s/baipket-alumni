@@ -261,6 +261,16 @@ async def on_text(m: Message):
     me = await m.bot.me()
     mentioned = f"@{me.username}".lower() in text
     replied = bool(m.reply_to_message and m.reply_to_message.from_user and m.reply_to_message.from_user.id == me.id)
+    about_bot = mentioned or replied or "ричи" in text or "бот" in words
+    threat = any(s in text for s in C.THREAT_STEMS)
+    insult = any(s in text for s in C.INSULT_STEMS)
+    if about_bot and (threat or insult):
+        pool = C.THREAT_COMEBACKS if threat else C.INSULT_COMEBACKS
+        ans = await llm_joke(
+            f"{name} саған тиісіп тұр: «{m.text}». Мысық Ричи ретінде өткір, күлкілі қарсы жауап қайтар: "
+            "қорғанба, керісінше өзің де тиіс."
+        ) or random.choice(pool).format(name=name)
+        return await m.reply(ans)
     if mentioned or replied:
         ans = await llm_joke(f"{name} саған чатта жазды: «{m.text}». Қазақша күлкілі, орынды жауап бер.") \
             or random.choice(C.RANDOM_REPLIES).format(name=name)
