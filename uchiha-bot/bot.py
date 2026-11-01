@@ -269,6 +269,19 @@ async def cmd_shaurma(m: Message):
     await m.answer(f"🌯 Шаурмаға бүгін төлейтін — <b>{random.choice(list(MEMBERS))}</b>. Қарсы болма, мысық шешті. Мяу.")
 
 
+@dp.message(Command("komus"))
+async def cmd_komus(m: Message):
+    await m.answer(
+        "💸 Олжас атынан: джиги, коммуналка мен интернетті жинайық! Әрқайсың ақшаны жіберіңдер. "
+        "Кім жібермесе — жұма түні мысық тырнайды. Мяу."
+    )
+
+
+@dp.message(Command("erzhan"))
+async def cmd_erzhan(m: Message):
+    await m.answer(" ".join(["Ержан пздц"] * 12) + " 🐱")
+
+
 @dp.message(Command("sethome"))
 async def cmd_sethome(m: Message):
     if m.chat.type not in ("group", "supergroup"):
