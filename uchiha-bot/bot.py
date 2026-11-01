@@ -312,11 +312,14 @@ async def on_text(m: Message):
     me = await m.bot.me()
     mentioned = f"@{me.username}".lower() in text
     replied = bool(m.reply_to_message and m.reply_to_message.from_user and m.reply_to_message.from_user.id == me.id)
-    about_bot = mentioned or replied or "ричи" in text or "бот" in words
+    about_bot = mentioned or replied or "ричи" in text or bool(re.search(r"(?<![а-яa-zәіңғүұқөһё])бот", text))
+    replace = any(s in text for s in C.REPLACE_STEMS)
+    curse = any(s in text for s in C.CURSE_STEMS)
     threat = any(s in text for s in C.THREAT_STEMS)
     insult = any(s in text for s in C.INSULT_STEMS)
-    if about_bot and (threat or insult):
-        pool = C.THREAT_COMEBACKS if threat else C.INSULT_COMEBACKS
+    if about_bot and (replace or curse or threat or insult):
+        pool = (C.REPLACE_COMEBACKS if replace else C.CURSE_COMEBACKS if curse
+                else C.THREAT_COMEBACKS if threat else C.INSULT_COMEBACKS)
         ans = await llm_joke(
             f"{name} саған тиісіп тұр: «{m.text}». Мысық Ричи ретінде өткір, күлкілі қарсы жауап қайтар: "
             "қорғанба, керісінше өзің де тиіс."
