@@ -108,7 +108,7 @@ h2{margin:0;font-weight:800;letter-spacing:-.025em;line-height:.98;text-transfor
 .radar circle.pt{fill:var(--red);transition:all .5s cubic-bezier(.2,.9,.2,1)}
 
 /* S4 */
-#f4 .title-l{top:150px;font-size:92px;color:#fff}
+#f4 .title-l{top:150px;font-size:76px;color:#fff}
 #f4 h2{color:#fff}
 .crows{position:absolute;left:88px;top:300px;width:830px}
 .crow{margin-bottom:16px}
@@ -132,7 +132,7 @@ h2{margin:0;font-weight:800;letter-spacing:-.025em;line-height:.98;text-transfor
 .ring .num b{font-size:190px;font-weight:800;letter-spacing:-.05em;line-height:1}
 .ring .num b sup{font-size:80px;vertical-align:top;position:relative;top:22px;margin-left:4px}
 .ring .num small{display:block;font-size:26px;color:#aaa;margin-top:-6px}
-.verd{position:absolute;right:96px;top:750px;width:610px;text-align:center;font-size:32px;font-weight:700;transition:.6s}
+.verd{position:absolute;right:96px;top:722px;width:610px;text-align:center;font-size:32px;font-weight:700;transition:.6s}
 .verd.off{opacity:0;transform:translateY(14px)}
 .redo{position:absolute;right:88px;top:84px;font-size:20px;color:#888;border:2px solid #333;border-radius:100px;padding:10px 22px}
 .redo:hover{color:#fff;border-color:#fff}
@@ -176,9 +176,9 @@ h2{margin:0;font-weight:800;letter-spacing:-.025em;line-height:.98;text-transfor
 .matchchip em{font-style:normal;font-size:22px;opacity:.85;display:block;margin-top:6px}
 
 /* S7 */
-#f7 .brand{display:none}
-#f7 .title-l{top:70px;font-size:64px}
-#f7 .lead{top:148px;font-size:24px}
+#f8 .brand{display:none}
+#f8 .title-l{top:70px;font-size:64px}
+#f8 .lead{top:148px;font-size:24px}
 .cd{position:absolute;right:88px;top:56px;display:flex;gap:14px;align-items:flex-end}
 .cd div{background:#111;color:#fff;border-radius:16px;width:104px;padding:12px 0 10px;text-align:center}
 .cd b{font-size:50px;font-weight:700;display:block;line-height:1;font-variant-numeric:tabular-nums}
@@ -209,12 +209,57 @@ h2{margin:0;font-weight:800;letter-spacing:-.025em;line-height:.98;text-transfor
 .slots em{font-style:normal;color:var(--red)}
 
 /* S8 */
-#f8 .big{position:absolute;left:88px;top:150px;margin:0;font-size:36px;font-weight:600}
-#f8 .pct{position:absolute;left:80px;top:200px;font-size:420px;font-weight:800;letter-spacing:-.06em;line-height:1;margin:0}
-#f8 .pct sup{font-size:190px;vertical-align:top;position:relative;top:48px}
-#f8 h2{position:absolute;right:96px;top:230px;width:620px;font-size:96px}
-#f8 .p2{position:absolute;right:96px;top:520px;width:620px;font-size:30px;line-height:1.35;margin:0}
-#f8 .cta{position:absolute;right:96px;top:700px;background:#fff;color:var(--red);font-size:32px;font-weight:800;border-radius:100px;padding:26px 46px;animation:pulse 1.8s infinite}
+#f12 .big{position:absolute;left:88px;top:150px;margin:0;font-size:36px;font-weight:600}
+#f12 .pct{position:absolute;left:80px;top:200px;font-size:420px;font-weight:800;letter-spacing:-.06em;line-height:1;margin:0}
+#f12 .pct sup{font-size:190px;vertical-align:top;position:relative;top:48px}
+#f12 h2{position:absolute;right:96px;top:230px;width:620px;font-size:96px}
+#f12 .p2{position:absolute;right:96px;top:520px;width:620px;font-size:30px;line-height:1.35;margin:0}
+#f12 .cta{position:absolute;right:96px;top:700px;background:#fff;color:var(--red);font-size:32px;font-weight:800;border-radius:100px;padding:26px 46px;animation:pulse 1.8s infinite}
+
+
+/* S7 rhythm */
+.rcards{position:absolute;left:88px;top:290px;width:1424px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rc{background:#f4f4f1;border-radius:20px;padding:26px 30px;min-height:250px}
+.rc i{font-style:normal;font-size:19px;font-weight:700;color:var(--red);display:block;margin-bottom:6px;letter-spacing:.04em;text-transform:uppercase}
+.rc b{display:block;font-size:32px;margin-bottom:10px;letter-spacing:-.01em}
+.rc span{font-size:22px;line-height:1.35;color:#444;display:block}
+.weeks{position:absolute;left:88px;top:580px;width:1424px;display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.wk{height:46px;border-radius:10px;background:#ececE8;color:#888;font-size:20px;font-weight:700;display:grid;place-items:center;transition:.35s}
+.wk.on3{background:var(--red);color:#fff}
+.rfacts{position:absolute;left:92px;top:650px;width:1420px;font-size:24px;line-height:1.4;color:#333;margin:0}
+.rfacts b{color:var(--red)}
+/* S9 bonuses */
+.bgrid{position:absolute;left:88px;top:300px;width:1424px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bn{position:relative;overflow:hidden;background:#fff;color:var(--ink);border-radius:24px;padding:34px 34px;min-height:420px}
+.bn .big2{font-size:66px;font-weight:800;letter-spacing:-.04em;color:var(--red);line-height:1;white-space:nowrap}
+.bn b{display:block;font-size:31px;margin:22px 0 12px;letter-spacing:-.01em}
+.bn span.t{font-size:23px;line-height:1.38;color:#444;display:block}
+.bn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(228,0,27,.14) 50%,transparent 70%);transform:translateX(-120%)}
+.frame.on .bn::after{animation:sh 1.5s ease 1.3s}
+@keyframes sh{to{transform:translateX(120%)}}
+.bfoot{position:absolute;left:92px;bottom:60px;font-size:34px;margin:0}
+/* S10 guarantee */
+.gcards{position:absolute;left:88px;top:300px;width:880px}
+.gc2{background:#f4f4f1;border-radius:22px;padding:30px 36px;margin-bottom:22px}
+.gc2 b{display:block;font-size:34px;margin-bottom:10px;color:var(--red);letter-spacing:-.01em}
+.gc2 span{font-size:26px;line-height:1.38;color:#333;display:block}
+.gseal{position:absolute;right:130px;top:250px;width:480px;height:520px;text-align:center}
+.gseal svg{width:480px;height:480px}
+.gseal circle,.gseal path{fill:none;stroke:var(--red);stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.gseal circle{stroke-width:14}.gseal path{stroke-width:22}
+.frame.on .gseal circle{stroke-dashoffset:0;transition:stroke-dashoffset 1.3s ease .5s}
+.frame.on .gseal path{stroke-dashoffset:0;transition:stroke-dashoffset .8s ease 1.6s}
+.gseal em{font-style:normal;display:block;font-size:34px;font-weight:800;color:var(--red);margin-top:-6px;text-transform:uppercase;letter-spacing:.05em}
+/* S11 top5 */
+#f11 h2{color:#fff}
+.dgrid{position:absolute;left:88px;top:300px;width:1424px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.dc{position:relative;background:#1f1f23;border-radius:24px;padding:34px;min-height:340px}
+.dc i{font-style:normal;position:absolute;right:26px;top:26px;background:var(--red);color:#fff;font-size:17px;font-weight:800;border-radius:100px;padding:6px 16px;letter-spacing:.06em}
+.dc b{display:block;font-size:36px;margin-bottom:14px;letter-spacing:-.01em;padding-right:70px}
+.dc span{font-size:24px;line-height:1.4;color:#d0d0d0;display:block}
+.dc .n5{font-size:120px;font-weight:800;color:var(--red);line-height:1;margin-bottom:6px;letter-spacing:-.05em}
+.ribbon{position:absolute;left:88px;right:88px;bottom:70px;background:var(--red);border-radius:100px;padding:26px 44px;font-size:34px;font-weight:700;text-align:center}
+#rec{display:block;font-size:21px;font-weight:400;color:#ccc;margin-top:6px;line-height:1.35}
 
 /* ---------- stickies ---------- */
 .sticky{position:absolute;width:210px;height:210px;padding:22px;font-size:30px;font-weight:700;line-height:1.1;box-shadow:0 16px 30px rgba(0,0,0,.16);border-radius:4px;display:flex;align-items:flex-end;letter-spacing:-.01em}
@@ -275,7 +320,7 @@ body.dir #viewport,body.dir .chip,body.dir #cursor,body.dir #confetti{display:no
     <h1 class="mega" id="mega"></h1>
     <p class="sub rv" style="--d:1100">Студенттің ойлауын, коммерциялық дағдысын және нәтижесін 3-5 есе тездететін қарқынды жүйе.</p>
     <p class="kick rv" style="--d:1400">Курс емес. Акселерация.</p>
-    <div class="go rv" style="--d:1800">Диагностиканы бастаймыз →</div>
+    <div class="go rv" style="--d:1800">Начинаем диагностику →</div>
     <div class="year">2026</div>
   </div></section>
 
@@ -283,23 +328,23 @@ body.dir #viewport,body.dir .chip,body.dir #cursor,body.dir #confetti{display:no
   <section class="frame white" id="f1"><div class="tag"><b>02</b>Профиль</div><div class="in">
     <div class="brand">Baipket Academy</div>
     <h2 class="title-l rv">Сен кімсің?</h2>
-    <p class="lead rv" style="--d:150">Дұрыс жауап жоқ — тек сәйкестік. Өзіңе жақынын бас.</p>
+    <p class="lead rv" style="--d:150">Правильного ответа нет. Нажми на то, что ближе к тебе.</p>
     <div class="pgrid" id="pgrid"></div>
   </div></section>
 
   <!-- 2 · Ауырсыну -->
   <section class="frame red" id="f2"><div class="tag"><b>03</b>Мәселелер</div><div class="in">
     <div class="brand">Baipket Academy</div>
-    <h2 class="title-l rv">Қайсысы саған таныс?</h2>
+    <h2 class="title-l rv">Что из этого тебе знакомо?</h2>
     <div class="kgrid" id="kgrid"></div>
-    <p class="verdict off" id="verdict">Бұл мәселе білімнің жоқтығынан емес — <b>ЖҮЙЕНІҢ</b> жоқтығынан туындайды.</p>
+    <p class="verdict off" id="verdict">Проблема не в нехватке знаний, а в отсутствии <b>СИСТЕМЫ</b>.</p>
   </div></section>
 
   <!-- 3 · Деңгей -->
   <section class="frame white" id="f3"><div class="tag"><b>04</b>Деңгей</div><div class="in">
     <div class="brand">Baipket Academy</div>
-    <h2 class="title-l rv">Қазір қай деңгейдесің?</h2>
-    <p class="lead rv" style="--d:150">1 — жаңа бастадым &nbsp;·&nbsp; 5 — жүйе жұмыс істеп тұр</p>
+    <h2 class="title-l rv">Какой у тебя уровень сейчас?</h2>
+    <p class="lead rv" style="--d:150">1 — только начал &nbsp;·&nbsp; 5 — система работает</p>
     <div class="lvrows" id="lvrows"></div>
     <div class="radar rv" style="--d:300" id="radar"></div>
   </div></section>
@@ -307,16 +352,16 @@ body.dir #viewport,body.dir .chip,body.dir #cursor,body.dir #confetti{display:no
   <!-- 4 · Есеп -->
   <section class="frame dark" id="f4"><div class="tag"><b>05</b>Есеп</div><div class="in">
     <div class="brand" style="color:#999">Baipket Academy</div>
-    <button class="redo" id="redo">↻ қайта есептеу</button>
-    <h2 class="title-l rv">Сәйкестік индексі</h2>
+    <button class="redo" id="redo">↻ пересчитать</button>
+    <h2 class="title-l rv">Индекс совпадения</h2>
     <div class="crows">
       <div class="crow" id="cr0"><div class="t"><span class="ck"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Профиль</span><small>40%</small><span class="pts" id="p0">+0</span></div><div class="bar"><i></i></div><div class="why" id="w0"></div></div>
-      <div class="crow" id="cr1"><div class="t"><span class="ck"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Ауырсыну сигналдары</span><small>30%</small><span class="pts" id="p1">+0</span></div><div class="bar"><i></i></div><div class="why" id="w1"></div></div>
-      <div class="crow" id="cr2"><div class="t"><span class="ck"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Өсу әлеуеті (ойық)</span><small>30%</small><span class="pts" id="p2">+0</span></div><div class="bar"><i></i></div><div class="why" id="w2"></div></div>
+      <div class="crow" id="cr1"><div class="t"><span class="ck"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Сигналы боли</span><small>30%</small><span class="pts" id="p1">+0</span></div><div class="bar"><i></i></div><div class="why" id="w1"></div></div>
+      <div class="crow" id="cr2"><div class="t"><span class="ck"><svg viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Потенциал роста (разрыв)</span><small>30%</small><span class="pts" id="p2">+0</span></div><div class="bar"><i></i></div><div class="why" id="w2"></div></div>
     </div>
-    <p class="formula"><b>Қалай есептеледі:</b> индекс = 40% профиль + 30% таныс мәселелер + 30% (5 − деңгей) ойығы.<br><b>Неге маңызды:</b> акселерация жүйе жетіспейтін жерде жұмыс істейді — ойық үлкен болған сайын, жылдамдату әсері көп.<br><span style="color:#777">Бұл — жауаптарға негізделген бағдар, нәтиже кепілдігі емес.</span></p>
+    <p class="formula"><b>Как считается:</b> индекс = 40% профиль + 30% знакомые проблемы + 30% разрыв (5 − уровень).<br><b>Почему важно:</b> акселерация работает там, где не хватает системы: чем больше разрыв, тем сильнее эффект.<br><span style="color:#777">Это ориентир по твоим ответам, не гарантия результата.</span></p>
     <div class="ring"><svg viewBox="0 0 560 560"><circle class="bg" cx="280" cy="280" r="240"/><circle class="fg" id="ringfg" cx="280" cy="280" r="240"/></svg>
-      <div class="num"><div><b><span id="mnum">0</span><sup>%</sup></b><small>сәйкестік</small></div></div></div>
+      <div class="num"><div><b><span id="mnum">0</span><sup>%</sup></b><small>совпадение</small></div></div></div>
     <div class="verd off" id="verd"></div>
   </div></section>
 
@@ -328,53 +373,102 @@ body.dir #viewport,body.dir .chip,body.dir #cursor,body.dir #confetti{display:no
     <div class="wbox rv" style="--d:300"><b>Акселерация</b><p>Бұл бизнестің немесе бір адамның өсу процесін жасанды түрде жылдамдататын қарқынды жүйе.</p><p>Қысқаша, өсу процессін жылдамдататын <b style="display:inline;font-size:inherit">«турбо-режим»</b>.</p></div>
     <div class="gauge rv" style="--d:200"><svg viewBox="0 0 760 560" id="gsvg"></svg></div>
     <div class="gread"><b id="gnum">×1.0</b><small id="gcap">өсу жылдамдығы</small></div>
-    <div class="steps rv" style="--d:900"><span>Ми</span><i>▸</i><span>Дағды</span><i>▸</i><span>Нәтиже</span></div>
+    <div class="steps rv" style="--d:900"><span>Мышление</span><i>▸</i><span>Навык</span><i>▸</i><span>Результат</span></div>
   </div></section>
 
   <!-- 6 · Бағдарлама -->
   <section class="frame white" id="f6"><div class="tag"><b>07</b>Бағдарлама</div><div class="in">
     <div class="brand">Baipket Academy</div>
-    <h2 class="title-l rv" style="top:150px;font-size:96px">Саған не кіреді?</h2>
-    <p class="lead rv" style="--d:150;top:262px">Әр пункт — сенің ойығыңды жабатын құрал.</p>
+    <h2 class="title-l rv" style="top:150px;font-size:96px">Что входит в программу?</h2>
+    <p class="lead rv" style="--d:150;top:262px">Каждый пункт закрывает твой разрыв.</p>
     <div class="prows" id="prows"></div>
-    <div class="matchchip rv" style="--d:400"><small>Саған сәйкестік</small><b><span id="pmatch">0</span>%</b><em>бағдарлама соңында — мэтч</em></div>
+    <div class="matchchip rv" style="--d:400"><small>Совпадение с тобой</small><b><span id="pmatch">0</span>%</b><em>в конце программы — мэтч</em></div>
   </div></section>
 
-  <!-- 7 · Ұсыныс -->
-  <section class="frame white" id="f7"><div class="tag"><b>08</b>Pre-Sales</div><div class="in">
+  <!-- 7 · Как проходит -->
+  <section class="frame white" id="f7"><div class="tag"><b>08</b>Как проходит</div><div class="in">
     <div class="brand">Baipket Academy</div>
-    <h2 class="title-l rv">Pre-Sales ұсынысы</h2>
-    <p class="lead rv" style="--d:100">Тек алғашқы 10 адамға немесе 10.11-ге дейін.</p>
-    <div class="cd rv" style="--d:200"><p>Ұсыныс<br>аяқталады</p><div><b id="cdd">00</b><small>күн</small></div><div><b id="cdh">00</b><small>сағат</small></div><div><b id="cdm">00</b><small>мин</small></div><div><b id="cds">00</b><small>сек</small></div></div>
+    <h2 class="title-l rv" style="top:120px;font-size:88px">Как проходит курс?</h2>
+    <p class="lead rv" style="--d:150;top:228px;font-size:27px">8 недель · 3 эфира в неделю · каждую неделю — результат, а не просто просмотр</p>
+    <div class="rcards">
+      <div class="rc rv" style="--d:300"><i>Начало недели</i><b>Эфир с трекером</b><span>Сабақты алдын ала көріп келесің. Трекер тақырыпты түсіндіріп, аптаға нақты задание береді. Нәтиже: өз жұмысыңа артефакт: план, таблица, отчёт.</span></div>
+      <div class="rc rv" style="--d:450"><i>Чт / Пт</i><b>Разбор с куратором</b><span>Задание бойынша не түсініксіз болды, практикада қай жерден затык шықты — бәрін бірге разбираем.</span></div>
+      <div class="rc rv" style="--d:600"><i>Суббота</i><b>Эфир с Акс ағай</b><span>Апта бойы істеген жұмысыңмен келесің: что получилось, что нет, какие вопросы остались — разбор.</span></div>
+    </div>
+    <div class="weeks" id="weeks"></div>
+    <p class="rfacts rv" style="--d:700"><b>Следующая неделя:</b> трекер принимает факт. На каждого 3 минуты: что нужно было сделать, что сделал, какой результат. Не успел — всё равно смотрим, где остановился, и даём план.<br><b>Эфир с трекером — 2 часа:</b> 1 час разбор факта группы, 1 час урок и новое задание. <b>В группе максимум 18–20 человек</b> (в Senior было 30). Вопросы трекеру и куратору можно писать и вне эфира.</p>
+  </div></section>
+
+  <!-- 8 · Ұсыныс -->
+  <section class="frame white" id="f8"><div class="tag"><b>09</b>Pre-Sales</div><div class="in">
+    <div class="brand">Baipket Academy</div>
+    <h2 class="title-l rv">Pre-Sales оффер</h2>
+    <p class="lead rv" style="--d:100">Только первые 10 человек или до 10.11.</p>
+    <div class="cd rv" style="--d:200"><p>Оффер<br>закончится</p><div><b id="cdd">00</b><small>дн</small></div><div><b id="cdh">00</b><small>ч</small></div><div><b id="cdm">00</b><small>мин</small></div><div><b id="cds">00</b><small>сек</small></div></div>
     <div class="offers">
       <div class="ofc rv" style="--d:300"><header>STANDARD</header><div class="bd">
-        <div class="l">Жалпы құндылығы:</div><div class="pr a">4 380 000 ₸<i class="st" style="--sd:1.0s"></i></div>
-        <div class="l">Негізгі бағасы:</div><div class="pr b">720 000 ₸<i class="st" style="--sd:1.7s"></i></div>
-        <div class="l">Pre-Sales бағасы:</div><div class="pr c">620 000 ₸</div>
+        <div class="l">Общая ценность:</div><div class="pr a">4 380 000 ₸<i class="st" style="--sd:1.0s"></i></div>
+        <div class="l">Базовая цена:</div><div class="pr b">720 000 ₸<i class="st" style="--sd:1.7s"></i></div>
+        <div class="l">Цена Pre-Sales:</div><div class="pr c">620 000 ₸</div>
         <ul><li>11 модуль: Senior Marketer курсы</li><li>8 разбор эфир + 8 лекция эфир</li><li>2 күндік офлайн · куратор & трекер · Community</li></ul></div></div>
       <div class="ofc rv" style="--d:450"><header>PRO</header><div class="bd">
-        <div class="l">Жалпы құндылығы:</div><div class="pr a">4 980 000 ₸<i class="st" style="--sd:1.0s"></i></div>
-        <div class="l">Негізгі бағасы:</div><div class="pr b">1 020 000 ₸<i class="st" style="--sd:1.7s"></i></div>
-        <div class="l">Pre-Sales бағасы:</div><div class="pr c">920 000 ₸</div>
+        <div class="l">Общая ценность:</div><div class="pr a">4 980 000 ₸<i class="st" style="--sd:1.0s"></i></div>
+        <div class="l">Базовая цена:</div><div class="pr b">1 020 000 ₸<i class="st" style="--sd:1.7s"></i></div>
+        <div class="l">Цена Pre-Sales:</div><div class="pr c">920 000 ₸</div>
         <ul><li>Standard пакетінің барлық мүмкіндігі</li><li>1-on-1 бизнес-разбор: Ақсұлтан Қалимен</li><li>Аға трекермен жеке консультация</li></ul></div></div>
       <div class="ofc sold rv" style="--d:600"><header>PARTNER</header><div class="bd">
-        <div class="l">Жалпы құндылығы:</div><div class="pr a">6 180 000 ₸<i class="st" style="--sd:1.0s"></i></div>
-        <div class="l">Негізгі бағасы:</div><div class="pr b">2 020 000 ₸<i class="st" style="--sd:1.7s"></i></div>
-        <div class="l">Pre-Sales бағасы:</div><div class="pr c">1 920 000 ₸</div>
+        <div class="l">Общая ценность:</div><div class="pr a">6 180 000 ₸<i class="st" style="--sd:1.0s"></i></div>
+        <div class="l">Базовая цена:</div><div class="pr b">2 020 000 ₸<i class="st" style="--sd:1.7s"></i></div>
+        <div class="l">Цена Pre-Sales:</div><div class="pr c">1 920 000 ₸</div>
         <ul><li>Standard + PRO барлық мүмкіндігі</li><li>Стратегиялық командалық сессия</li><li>2 жеке консультация + бизнес-разбор · VIP трекинг</li></ul></div>
         <div class="stamp">SOLD OUT</div></div>
     </div>
-    <div class="slots rv" style="--d:900">Қалған орын: <div class="dots" id="dots"></div><em id="slotn">10 / 10</em></div>
+    <div class="slots rv" style="--d:900">Осталось мест: <div class="dots" id="dots"></div><em id="slotn">10 / 10</em></div>
   </div></section>
 
-  <!-- 8 · Финал -->
-  <section class="frame red" id="f8"><div class="tag"><b>09</b>Финал</div><div class="in">
+  <!-- 9 · Бонусы -->
+  <section class="frame red" id="f9"><div class="tag"><b>10</b>Бонусы</div><div class="in">
     <div class="brand">Baipket Academy</div>
-    <p class="big rv">Сенің сәйкестігің</p>
+    <h2 class="title-l rv">Что ты получаешь сейчас</h2>
+    <div class="bgrid">
+      <div class="bn rv" style="--d:300"><div class="big2">−<span id="bn1">0</span> ₸</div><b>Скидка Pre-Sales</b><span class="t">Действует по Pre-Sales: для первых 10 человек или до 10.11.</span></div>
+      <div class="bn rv" style="--d:500"><div class="big2">×2</div><b>«Коммерческий интеллект»</b><span class="t">Өзіңе ашылады, досыңа да доступ ашып бере аламыз. Одна покупка — два человека.</span></div>
+      <div class="bn rv" style="--d:700"><div class="big2">24 ч</div><b>Полная оплата за 24 часа</b><span class="t">Каждую неделю 1 общий созвон с трекером. Групповой формат, нужно минимум 5 человек.</span></div>
+    </div>
+    <p class="bfoot rv" style="--d:1000"><b>Бонус — только тем, кто регистрируется сейчас.</b></p>
+  </div></section>
+
+  <!-- 10 · Гарантия -->
+  <section class="frame white" id="f10"><div class="tag"><b>11</b>Гарантия</div><div class="in">
+    <div class="brand">Baipket Academy</div>
+    <h2 class="title-l rv">Гарантия и возврат</h2>
+    <div class="gcards">
+      <div class="gc2 rv" style="--d:300"><b>1 · Результат или деньги назад</b><span>Курстың соңында ең болмаса 1 тақырыпты артефакт арқылы практикада қолдана алмасаң — ақшаңды қайтарамыз.</span></div>
+      <div class="gc2 rv" style="--d:500"><b>2 · Возврат за непройденную часть</b><span>Курсты жалғастырғың келмесе де, өткен частьқа қарай возврат жасай аламыз. Это условие уже записано в договоре.</span></div>
+    </div>
+    <div class="gseal rv" style="--d:200"><svg viewBox="0 0 300 300"><circle pathLength="1" cx="150" cy="150" r="130"/><path pathLength="1" d="M85 155l45 45 85-95"/></svg><em>в договоре</em></div>
+  </div></section>
+
+  <!-- 11 · Топ-5 / новое -->
+  <section class="frame dark" id="f11"><div class="tag"><b>12</b>Топ-5 и новое</div><div class="in">
+    <div class="brand" style="color:#999">Baipket Academy</div>
+    <h2 class="title-l rv">Лучшим — больше</h2>
+    <div class="dgrid">
+      <div class="dc rv" style="--d:300"><div class="n5">ТОП 5</div><b>Лучшие проекты</b><span>Ол кісілерге жағдай жасаймыз: трекинг болады. Сосын +1 ай бонус ретінде беріледі.</span></div>
+      <div class="dc rv" style="--d:500"><i>NEW</i><b>Cloud-компонент</b><span>Промежуточный оффер. Новый компонент в программе.</span></div>
+      <div class="dc rv" style="--d:700"><i>NEW</i><b>Performance + менеджмент</b><span>Көмектеседі: сайт жасау, воронка, финка, біреуге задача беру.</span></div>
+    </div>
+    <div class="ribbon rv" style="--d:1000">Бонус — қазір тіркелсең</div>
+  </div></section>
+
+  <!-- 12 · Финал -->
+  <section class="frame red" id="f12"><div class="tag"><b>13</b>Финал</div><div class="in">
+    <div class="brand">Baipket Academy</div>
+    <p class="big rv">Твоё совпадение</p>
     <p class="pct rv" style="--d:100"><span id="fnum">0</span><sup>%</sup></p>
-    <h2 class="rv" style="--d:300">Орның сақталсын?</h2>
-    <p class="p2 rv" style="--d:500">Pre-Sales — алғашқы 10 адамға немесе 10.11-ге дейін. Қалған орын: <b id="fslots">10</b>.</p>
-    <div class="cta rv" style="--d:700">Қазір шешім қабылда →</div>
+    <h2 class="rv" style="--d:300">Место за тобой?</h2>
+    <p class="p2 rv" style="--d:500">Pre-Sales — первые 10 человек или до 10.11. Осталось мест: <b id="fslots">10</b>.</p>
+    <div class="cta rv" style="--d:700">Прими решение сейчас →</div>
     <div class="year">2026</div>
   </div></section>
 </div></div>
@@ -398,26 +492,34 @@ const CH = (() => { try { return new BroadcastChannel('baipket-live'); } catch {
 const SCENES = [
   { id: 'f0', title: 'Ашылу', x: 0, y: 0 },
   { id: 'f1', title: 'Профиль', x: 2500, y: -350 },
-  { id: 'f2', title: 'Мәселелер', x: 5000, y: 150 },
-  { id: 'f3', title: 'Деңгей', x: 7500, y: -250 },
-  { id: 'f4', title: 'Есеп', x: 7400, y: 1750 },
+  { id: 'f2', title: 'Проблемы', x: 5000, y: 150 },
+  { id: 'f3', title: 'Уровень', x: 7500, y: -250 },
+  { id: 'f4', title: 'Расчёт', x: 7400, y: 1750 },
   { id: 'f5', title: 'Акселерация', x: 4900, y: 2100 },
-  { id: 'f6', title: 'Бағдарлама', x: 2400, y: 1800 },
-  { id: 'f7', title: 'Pre-Sales', x: 0, y: 2150 },
-  { id: 'f8', title: 'Финал', x: -2500, y: 1750 },
+  { id: 'f6', title: 'Программа', x: 2400, y: 1800 },
+  { id: 'f7', title: 'Как проходит', x: 0, y: 2150 },
+  { id: 'f8', title: 'Pre-Sales', x: -2500, y: 1800 },
+  { id: 'f9', title: 'Бонусы', x: -2500, y: 3700 },
+  { id: 'f10', title: 'Гарантия', x: 0, y: 3350 },
+  { id: 'f11', title: 'Топ-5 и новое', x: 2500, y: 3700 },
+  { id: 'f12', title: 'Финал', x: 5000, y: 3350 },
 ];
 const N = SCENES.length;
 
 const NOTES = [
-  ['Қош келдіңдер! Бүгін курс сатпаймын — 5 минуттық диагностика өткіземіз.', 'Соңында әрқайсыңа Акселерацияға сәйкестік индексі шығады.', 'Бастайық: → немесе Space.'],
-  ['Қай сипаттама өзіңе жақын? Дұрыс-бұрыс жауап жоқ.', 'Шеше алмай тұрса — «A» (Авто): курсор ең жиі жауапты өзі таңдайды.'],
-  ['Төрт мәселенің қайсысы таныс? Бірнешеуін белгілеуге болады.', 'Қорытынды: мәселе білімде емес — жүйеде.'],
-  ['1-ден 5-ке дейін бағала: Ми, Дағды, Нәтиже.', 'Радар нақты уақытта өзгереді — ойық көрінеді.'],
-  ['Қалай есептеледі: 40% профиль + 30% мәселелер + 30% ойық. Формула экранда.', 'Неге маңызды: акселерация жүйе жетпеген жерде жұмыс істейді.', 'Айт: бұл бағдар, нәтиже кепілдігі емес.'],
-  ['Курс емес — турбо-режим. Ми → Дағды → Нәтиже.', 'Бағдарша 3-5 есе тездету — өз сөзіңмен түсіндір.'],
-  ['Әр пункт — сенің ойығыңды жабатын құрал.', '«Сенің ойығың» белгісі — ең әлсіз оське сәйкес.', 'Соңында — мэтч.'],
-  ['Pre-Sales: тек алғашқы 10 адам немесе 10.11-ге дейін.', 'Орын санын шын жаңартып отыр (пультте − / +).', 'Партнер — SOLD OUT.'],
-  ['Сәйкестік шықты. Келесі қадам — орынды ұстау.', 'Тоқта. Үнсіздік. Адам жауап береді.'],
+  ['Қош келдіңдер! Курс сатпаймын: 5 минутта вместе проходим диагностику.', 'В конце у каждого будет индекс совпадения с Акселерацией.', 'Начинаем: → или Space.'],
+  ['Какое описание ближе к тебе? Правильного ответа нет.', 'Шеше алмай тұрса — «A» (Авто): курсор сам выберет самый частый ответ.'],
+  ['Какие из 4 проблем знакомы? Можно несколько.', 'Вывод: проблема не в знаниях, а в системе.'],
+  ['Оцени себя от 1 до 5: Мышление, Навык, Результат.', 'Радар меняется на глазах: разрыв сразу виден.', 'Слово «Навык» объясни своими словами: что человек умеет делать руками.'],
+  ['Как считается: 40% профиль + 30% знакомые проблемы + 30% разрыв. Формула на экране.', 'Wow: внизу появляется личная рекомендация, с чего начать именно ему.', 'Скажи: это ориентир по ответам, не гарантия результата.'],
+  ['Не курс, а турбо-режим. Мышление → Навык → Результат.', 'Нажми «турбо» ещё раз для повтора.'],
+  ['Каждый пункт закрывает твой разрыв.', '«Твой разрыв» отмечено на самой слабой оси.', 'В конце — мэтч.'],
+  ['8 недель, 3 эфира в неделю: трекер → куратор → Акс ағай.', 'Подчеркни: каждую неделю делается артефакт, а не просто просмотр.', 'Группа максимум 18–20 человек (в Senior было 30).'],
+  ['Pre-Sales: первые 10 человек или до 10.11.', 'Количество мест обновляй честно (пульт − / +).', 'Partner — SOLD OUT.'],
+  ['Бонусы: −100 000 ₸, «Коммерческий интеллект» тебе и другу, 24 часа на полную оплату.', 'Пауза. Дай им осознать: ×2 доступа.', 'Бонус — тем, кто регистрируется сейчас.'],
+  ['Гарантия: не смог применить хотя бы 1 тему на практике — вернём деньги.', 'Возврат за непройденную часть. Условие в договоре.'],
+  ['Топ-5 проектов: условия, трекинг и +1 месяц.', 'Новое: Cloud-компонент и Performance + менеджмент.', 'Бонус — тем, кто регистрируется сейчас.'],
+  ['Совпадение посчитано. Следующий шаг: занять место.', 'Стоп. Тишина. Человек отвечает.'],
 ];
 
 const PROFILES = [
@@ -434,9 +536,9 @@ const PAINS = [
   ['«Өсудің нақты жол картасы жоқ»', 'Әрекеттер көп, бірақ қайсысы нәтиже беретіні белгісіз. Нақты фокус жоқ.'],
 ];
 const AXES = [
-  ['mind', 'Ми', 'Нарықты түсіну, жүйелі ойлау, стратегиялық шешім'],
-  ['action', 'Дағды', 'Маркетинг, сату және басқаруды практикада меңгеру'],
-  ['result', 'Нәтиже', 'Табыс пен оборот: жүйелі, болжамды өсу'],
+  ['mind', 'Мышление', 'Понимание рынка, системное мышление, стратегические решения'],
+  ['action', 'Навык', 'Маркетинг, продажи и управление — на практике'],
+  ['result', 'Результат', 'Доход и оборот: стабильный, предсказуемый рост'],
 ];
 const PROGRAM = [
   ['11 толық модуль', 'Senior Marketer курсының сабақтарына толық доступ', 'mind'],
@@ -444,7 +546,7 @@ const PROGRAM = [
   ['8 лекция эфир', 'Аға трекермен апта сайынғы сабақтар', 'mind'],
   ['2 күндік офлайн интенсив', 'Ақсұлтан Қали мен Мырзағали Шәріптен', 'action'],
   ['Кураторлық & трекерлік бақылау', 'Күнделікті кері байланыс пен консультациялар', 'result'],
-  ['Soft & Hard Skills', 'Дағдыны дамытуға арналған қосымша компоненттер', 'action'],
+  ['Soft & Hard Skills', 'Доп. компоненты для прокачки навыков', 'action'],
   ['Baipket Community', 'Өзгеріске дайын, деңгейлес ортаға кіру', 'result'],
 ];
 const DEADLINE = new Date('2026-11-10T23:59:59+05:00').getTime();
@@ -506,9 +608,10 @@ $('#lvrows').innerHTML = AXES.map(([k, n, d], i) =>
   `<div class="lvrow rv" style="--d:${250 + i * 140}"><h3><i>0${i + 1}</i>${n}</h3><p>${d}</p><div class="lvs">${[1, 2, 3, 4, 5].map((v) => `<button class="lv dflt" data-k="${k}" data-v="${v}">${v}</button>`).join('')}</div></div>`).join('');
 
 $('#prows').innerHTML = PROGRAM.map(([t, d, ax], i) =>
-  `<div class="prow" data-ax="${ax}">${ckSvg}<div><b>${t}</b><span class="d">${d}</span></div><span class="gap">сенің ойығың</span></div>`).join('');
+  `<div class="prow" data-ax="${ax}">${ckSvg}<div><b>${t}</b><span class="d">${d}</span></div><span class="gap">твой разрыв</span></div>`).join('');
 
 $('#dots').innerHTML = '<i></i>'.repeat(10);
+$('#weeks').innerHTML = Array.from({ length: 8 }, (_, i) => `<div class="wk">Н${i + 1}</div>`).join('');
 
 // radar
 const RC = { x: 300, y: 290, r: 210 };
@@ -517,9 +620,9 @@ const poly = (v) => AXES.map((_, i) => rpt(i, v[i]).join(',')).join(' ');
 $('#radar').innerHTML = `<svg viewBox="0 0 600 560">${[1, 2, 3, 4, 5].map((l) => `<polygon class="g" points="${poly([l, l, l])}"/>`).join('')}
 ${AXES.map((_, i) => `<line class="g" x1="${RC.x}" y1="${RC.y}" x2="${rpt(i, 5)[0]}" y2="${rpt(i, 5)[1]}"/>`).join('')}
 <polygon class="shape" id="rshape" points="${poly([3, 3, 3])}"/>${AXES.map((_, i) => `<circle class="pt" id="rp${i}" r="9" cx="${rpt(i, 3)[0]}" cy="${rpt(i, 3)[1]}"/>`).join('')}
-<text x="${RC.x}" y="${RC.y - RC.r - 22}" text-anchor="middle">Ми</text>
-<text x="${rpt(1, 5)[0] + 26}" y="${rpt(1, 5)[1] + 34}" text-anchor="middle">Дағды</text>
-<text x="${rpt(2, 5)[0] - 26}" y="${rpt(2, 5)[1] + 34}" text-anchor="middle">Нәтиже</text></svg>`;
+<text x="${RC.x}" y="${RC.y - RC.r - 22}" text-anchor="middle">Мышление</text>
+<text x="${rpt(1, 5)[0] + 26}" y="${rpt(1, 5)[1] + 34}" text-anchor="middle">Навык</text>
+<text x="${rpt(2, 5)[0] - 26}" y="${rpt(2, 5)[1] + 34}" text-anchor="middle">Результат</text></svg>`;
 function drawRadar() {
   const v = AXES.map(([k]) => st.lv[k]);
   $('#rshape').setAttribute('points', poly(v));
@@ -558,11 +661,11 @@ const segs = [];
     segs.push({ p, len, prog: 0 });
     const c = document.createElementNS(svgNS, 'circle'); c.setAttribute('cx', sx); c.setAttribute('cy', sy); c.setAttribute('r', 14); links.appendChild(c);
     const mx = (sx + ex) / 2, my = (sy + ey) / 2;
-    const st2 = [['r', 'Курс емес.\nАкселерация.'], ['w', 'Білім → жүйе'], ['k', 'Ми\nДағды\nНәтиже'], ['g', '×3–5'], ['r', 'Турбо-\nрежим'], ['w', 'Сенің\nойығың'], ['k', 'Pre-Sales\n10.11'], ['r', 'Орның\nсақталсын']][i];
+    const st2 = [['r', 'Курс емес.\nАкселерация.'], ['w', 'Знания →\nсистема'], ['k', 'Мышление\nНавык\nРезультат'], ['g', '×3–5'], ['r', 'Турбо-\nрежим'], ['w', 'Твой\nразрыв'], ['k', '8 недель\n3 эфира'], ['r', 'Pre-Sales\n10.11'], ['w', '−100 000 ₸'], ['k', 'Возврат\nв договоре'], ['g', 'Топ-5\n+1 месяц'], ['r', 'Место\nза тобой']][i];
     const s = document.createElement('div');
     s.className = 'sticky ' + st2[0]; s.textContent = st2[1]; s.style.whiteSpace = 'pre-line';
     s.style.left = (mx - 105 + (horiz ? 0 : 220)) + 'px'; s.style.top = (my - 105 + (horiz ? -160 : 0)) + 'px';
-    s.style.transform = `rotate(${[-5, 4, -3, 6, -6, 3, -4, 5][i]}deg)`;
+    s.style.transform = `rotate(${[-5, 4, -3, 6, -6, 3, -4, 5, -3, 6, -5, 4][i]}deg)`;
     world.appendChild(s);
   }
 }
@@ -675,9 +778,9 @@ HOOKS[4] = async () => {
   $('#mnum').textContent = '0'; $('#verd').classList.add('off');
   [0, 1, 2].forEach((i) => { $('#cr' + i).classList.remove('is'); $('#cr' + i + ' .bar i').style.width = '0'; $('#p' + i).textContent = '+0'; $('#w' + i).textContent = ''; });
   const whys = [
-    st.profile != null ? `Профиль: ${PROFILES[st.profile][0]}` : 'Профиль таңдалмады',
-    `${st.pains.size} / 4 мәселе таныс`,
-    `Өсу ойығы: ${Math.round(sc.gap)}% · ең әлсіз ось: ${AXES.find(([k]) => k === weakest())[1]}`,
+    st.profile != null ? `Профиль: ${PROFILES[st.profile][0]}` : 'Профиль не выбран',
+    `${st.pains.size} / 4 проблемы знакомы`,
+    `Разрыв роста: ${Math.round(sc.gap)}% · слабая ось: ${AXES.find(([k]) => k === weakest())[1]}`,
   ];
   const vals = [sc.prof, sc.pains, sc.gap];
   sfx.rise(); await sleep(900);
@@ -692,7 +795,8 @@ HOOKS[4] = async () => {
   await sleep(300); sfx.hit();
   await countTo($('#mnum'), sc.match, 1700, (t) => { fg.style.strokeDashoffset = circ * (1 - (sc.match / 100) * (1 - Math.pow(1 - t, 3))); });
   if (tok !== tokCalc) return;
-  const v = $('#verd'); v.textContent = sc.match >= 80 ? 'Жоғары сәйкестік' : sc.match >= 60 ? 'Жақсы сәйкестік' : 'Диагностиканы толықтырайық'; v.classList.remove('off');
+  const v = $('#verd'); const REC = { mind: 'Начни с 11 модулей и лекций с трекером', action: 'Твой старт: разборы с Акс ағай и 2 дня офлайн', result: 'Твой старт: куратор и трекер каждую неделю' };
+  v.innerHTML = (sc.match >= 80 ? 'Высокое совпадение' : sc.match >= 60 ? 'Хорошее совпадение' : 'Давай уточним ответы') + `<span id="rec">Слабое место: <b style="color:#fff">${AXES.find(([k]) => k === weakest())[1]}</b>. ${REC[weakest()]}</span>`; v.classList.remove('off');
   if (sc.match >= 80) confetti(); broadcast();
 };
 let tokG = 0;
@@ -719,9 +823,15 @@ HOOKS[6] = async () => {
   for (const r of rows) { if (tok !== tokP) return; r.classList.add('done'); sfx.tick(); await sleep(520); }
   if (tok !== tokP) return; sfx.hit(); await countTo($('#pmatch'), score().match, 1400);
 };
-HOOKS[7] = () => { updateSlots(); };
-HOOKS[8] = async () => { const m = score().match; $('#fnum').textContent = '0'; $('#fslots').textContent = st.slots; await sleep(500); sfx.hit(); countTo($('#fnum'), m, 1500); confetti(); };
+HOOKS[8] = () => { updateSlots(); };
+HOOKS[12] = async () => { const m = score().match; $('#fnum').textContent = '0'; $('#fslots').textContent = st.slots; await sleep(500); sfx.hit(); countTo($('#fnum'), m, 1500); confetti(); };
 
+let tokW = 0;
+HOOKS[7] = async () => {
+  const tok = ++tokW, w = $$('.wk'); w.forEach((x) => x.classList.remove('on3')); await sleep(1500);
+  for (const x of w) { if (tok !== tokW) return; x.classList.add('on3'); sfx.tick(); await sleep(260); }
+};
+HOOKS[9] = async () => { $('#bn1').textContent = '0'; await sleep(900); sfx.hit(); await countTo($('#bn1'), 100000, 1400, (t, v) => { $('#bn1').textContent = v.toLocaleString('ru-RU').replace(/,/g, ' '); }); };
 function updateSlots() {
   $$('#dots i').forEach((d, i) => d.classList.toggle('x', i >= st.slots));
   $('#slotn').textContent = `${st.slots} / 10`; $('#fslots').textContent = st.slots;
@@ -841,7 +951,7 @@ function buildDirector() {
     $('#dsay').innerHTML = NOTES[s.idx].map((t) => `<p>• ${t}</p>`).join('');
     $$('#dsc button').forEach((b, i) => b.classList.toggle('cur2', i === s.idx));
     $('#dsl').textContent = `Орын: ${s.slots} / 10`; $('#ds').classList.toggle('on', s.sound); $('#da').classList.toggle('on', s.auto);
-    $('#ddata').innerHTML = `<b>Профиль:</b> ${s.profile || '—'}<br><b>Мәселелер:</b> ${s.pains.length ? s.pains.join(' · ') : '—'}<br><b>Деңгей:</b> Ми ${s.lv.mind} · Дағды ${s.lv.action} · Нәтиже ${s.lv.result}<br><b>Сәйкестік (қазір):</b> ${s.match}%`;
+    $('#ddata').innerHTML = `<b>Профиль:</b> ${s.profile || '—'}<br><b>Проблемы:</b> ${s.pains.length ? s.pains.join(' · ') : '—'}<br><b>Уровень:</b> Мышление ${s.lv.mind} · Навык ${s.lv.action} · Результат ${s.lv.result}<br><b>Совпадение (сейчас):</b> ${s.match}%`;
   }
   if (CH) CH.onmessage = (e) => { if (e.data && e.data.type === 'state') render(e.data); };
   setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); $('#clk').textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }, 1000);
