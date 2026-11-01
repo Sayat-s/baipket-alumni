@@ -231,6 +231,31 @@ async def cmd_uy(m: Message):
     await m.answer(house_message())
 
 
+@dp.message(Command("mem"))
+async def cmd_mem(m: Message):
+    a, b = random.sample(list(MEMBERS), 2)
+    await m.answer("😹 " + random.choice(C.MEMS).format(a=a, b=b))
+
+
+@dp.message(Command("pabg"))
+async def cmd_pabg(m: Message):
+    a, b = random.sample(list(MEMBERS), 2)
+    await m.answer(random.choice(C.PABG_CALLS).format(a=a, b=b))
+
+
+@dp.message(Command("kim"))
+async def cmd_kim(m: Message):
+    rng = seeded(date.today(), m.chat.id, "kim")
+    topics = rng.sample(C.KIM_TOPICS, 3)
+    lines = [f"• Бүгін {tp} — <b>{rng.choice(list(MEMBERS))}</b>" for tp in topics]
+    await m.answer("🎯 Мысықтың бүгінгі шешімі:\n" + "\n".join(lines))
+
+
+@dp.message(Command("shaurma"))
+async def cmd_shaurma(m: Message):
+    await m.answer(f"🌯 Шаурмаға бүгін төлейтін — <b>{random.choice(list(MEMBERS))}</b>. Қарсы болма, мысық шешті. Мяу.")
+
+
 @dp.message(Command("sethome"))
 async def cmd_sethome(m: Message):
     if m.chat.type not in ("group", "supergroup"):
@@ -272,8 +297,9 @@ async def on_text(m: Message):
         ) or random.choice(pool).format(name=name)
         return await m.reply(ans)
     if mentioned or replied:
+        pool = C.GREET_REPLIES if words & C.GREET_WORDS else C.MENTION_REPLIES
         ans = await llm_joke(f"{name} саған чатта жазды: «{m.text}». Қазақша күлкілі, орынды жауап бер.") \
-            or random.choice(C.RANDOM_REPLIES).format(name=name)
+            or random.choice(pool).format(name=name)
         return await m.reply(ans)
 
     for trig, replies in C.TRIGGERS.items():

@@ -3,7 +3,9 @@
     "aliases": [
       "саят",
       "sayat",
-      "hos"
+      "hos",
+      "saiat",
+      "sayat s"
     ],
     "role": "продажник",
     "facts": [],
@@ -13,7 +15,9 @@
     "aliases": [
       "олжас",
       "олжик",
-      "olzhas"
+      "olzhas",
+      "oljas",
+      "olzhik"
     ],
     "role": "продажник",
     "facts": [],
@@ -22,7 +26,8 @@
   "Ера": {
     "aliases": [
       "ера",
-      "era"
+      "era",
+      "yera"
     ],
     "role": "продажник",
     "facts": [
@@ -49,7 +54,11 @@
   "Ержан": {
     "aliases": [
       "ержан",
-      "ержик"
+      "ержик",
+      "erzhan",
+      "yerzhan",
+      "erjan",
+      "ерж"
     ],
     "role": "монтажер",
     "facts": [],
@@ -58,7 +67,9 @@
   "Аслан": {
     "aliases": [
       "аслан",
-      "асланчик"
+      "асланчик",
+      "aslan",
+      "aslanchik"
     ],
     "role": "монтажер",
     "facts": [],
