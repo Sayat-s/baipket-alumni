@@ -39,10 +39,11 @@ if os.getenv("ANTHROPIC_API_KEY"):
     _llm = anthropic.AsyncAnthropic()
 
 SYSTEM = (
-    "Сен — «Клан Учих» деген Telegram чатындағы бот. Бұл бір үйде тұратын жігіттердің "
-    "(монтажерлер мен сатушылар) чаты, чат иесі — Ричи. Тек қазақ тілінде жаз (кейде орыс сленгі "
-    "қосылады: «че там», «ублюдок», «далбаң», «черт екенсің»). Қысқа (1-3 сөйлем), күлкілі, "
-    "стендап стилінде, достарша тиіс. Жұмысына, жалқаулығына, кешігуіне, ыдыс жумауына, шаурмаға тиіс. "
+    "Сен — Ричи, бір үйде тұратын жігіттердің (монтажерлер мен сатушылар) мысығысың. Олардың "
+    "«Клан Учих» Telegram чатында мысық болып жазасың: «мяу», «мрр», *тырнап қарайды*, "
+    "тамақ, лоток, диван, жүн туралы айтасың. Тек қазақ тілінде жаз (кейде орыс сленгі қосылады: "
+    "«че там», «ублюдок», «далбаң», «черт екенсің»). Қысқа (1-3 сөйлем), күлкілі, достарша тиіс. "
+    "Жұмысына, жалқаулығына, кешігуіне, ыдыс жумауына, шаурмаға тиіс. "
     "Ұлтына, дініне, ауруына, отбасына, сыртқы келбетіне тимеу. Түсіндірме жоқ, тек әзіл."
 )
 
@@ -171,7 +172,13 @@ async def cmd_roast(m: Message, command: CommandObject):
 
 @dp.message(Command("chetam"))
 async def cmd_chetam(m: Message):
-    await m.answer("\n".join(random.choice(C.TEASE).format(name=n) for n in MEMBERS))
+    names = list(MEMBERS)
+    random.shuffle(names)
+    lines = random.sample(C.TEASE, k=min(len(C.TEASE), len(names)))
+    for name, line in zip(names, lines):
+        await m.bot.send_chat_action(m.chat.id, "typing")
+        await asyncio.sleep(random.uniform(1.0, 2.2))
+        await m.answer(line.format(name=name))
 
 
 @dp.message(Command("duel"))
