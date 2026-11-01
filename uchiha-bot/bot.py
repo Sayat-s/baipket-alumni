@@ -118,7 +118,20 @@ async def roast_for(name: str) -> str:
     if jokes and random.random() < 0.5:  # жеке ішкі әзіл
         return random.choice(jokes).format(name=name)
     pool = C.ROASTS + C.ROLE_ROASTS.get(role, []) * 2
-    return await llm_joke(prompt) or random.choice(pool).format(name=name)
+    return await llm_joke(prompt) or bag_pick(f"roast:{role}", pool).format(name=name)
+
+
+_bags: dict = {}
+
+
+def bag_pick(key: str, items: list):
+    """Тізімді араластырып, бәрін айтып біткенше қайталамай береді."""
+    bag = _bags.get(key)
+    if not bag:
+        bag = list(items)
+        random.shuffle(bag)
+        _bags[key] = bag
+    return bag.pop()
 
 
 def house_message() -> str:
@@ -234,7 +247,7 @@ async def cmd_uy(m: Message):
 @dp.message(Command("mem"))
 async def cmd_mem(m: Message):
     a, b = random.sample(list(MEMBERS), 2)
-    await m.answer("😹 " + random.choice(C.MEMS).format(a=a, b=b))
+    await m.answer("😹 " + bag_pick("mem", C.MEMS).format(a=a, b=b))
 
 
 @dp.message(Command("pabg"))
