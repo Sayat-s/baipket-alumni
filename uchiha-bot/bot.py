@@ -114,6 +114,9 @@ async def roast_for(name: str) -> str:
         prompt += f" Оның жұмысы: {role}."
     if facts:
         prompt += f" Ол туралы мәлімет (қолдан): {facts}."
+    jokes = info.get("jokes", [])
+    if jokes and random.random() < 0.5:  # жеке ішкі әзіл
+        return random.choice(jokes).format(name=name)
     pool = C.ROASTS + C.ROLE_ROASTS.get(role, []) * 2
     return await llm_joke(prompt) or random.choice(pool).format(name=name)
 
@@ -178,6 +181,9 @@ async def cmd_chetam(m: Message):
     for name, line in zip(names, lines):
         await m.bot.send_chat_action(m.chat.id, "typing")
         await asyncio.sleep(random.uniform(1.0, 2.2))
+        jokes = MEMBERS[name].get("jokes", [])
+        if jokes and random.random() < 0.5:
+            line = random.choice(jokes)
         await m.answer(line.format(name=name))
 
 
