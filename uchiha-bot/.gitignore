@@ -2,3 +2,4 @@ venv/
 .env
 .env.key
 __pycache__/
+state.json
