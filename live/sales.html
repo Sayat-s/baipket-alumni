@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baipket · Сату пульті</title>
+<style>
+:root{--red:#e4001b;--ink:#1a1a1a;--mute:#6b6b68;--line:#e7e7e4;--bg:#f4f4f1}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input,textarea,select{font:inherit;color:inherit}
+#app{display:grid;grid-template-columns:260px minmax(0,1fr) 360px;grid-template-rows:64px minmax(0,1fr) auto;height:100vh;gap:14px;padding:14px}
+.card{background:#fff;border-radius:18px;padding:18px 20px}
+/* top */
+#top{grid-column:1/4;display:flex;align-items:center;gap:16px;background:var(--red);color:#fff;border-radius:18px;padding:0 22px}
+#top b{font-size:20px;letter-spacing:-.01em}
+#top .sp{flex:1}
+#top input{background:rgba(255,255,255,.18);border:0;border-radius:10px;padding:10px 14px;color:#fff;width:260px;font-size:17px}
+#top input::placeholder{color:rgba(255,255,255,.75)}
+#clock{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.pill{background:#fff;color:var(--red);border-radius:100px;padding:8px 16px;font-weight:700;font-size:15px}
+.pill.ghost{background:rgba(255,255,255,.18);color:#fff}
+/* left: stages */
+#stages{overflow:auto}
+.stg{display:flex;gap:12px;align-items:center;width:100%;text-align:left;padding:12px 10px;border-radius:12px;margin-bottom:4px}
+.stg:hover{background:var(--bg)}
+.stg .n{width:30px;height:30px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
+.stg b{display:block;font-size:15.5px;line-height:1.2}
+.stg small{color:var(--mute);font-size:13px}
+.stg.cur{background:var(--red);color:#fff}.stg.cur .n{background:#fff;color:var(--red)}.stg.cur small{color:#ffd0d5}
+.stg.done .n{background:var(--ink);color:#fff}
+.stg.over small{color:var(--red);font-weight:700}.stg.cur.over small{color:#fff}
+/* center: script */
+#script{overflow:auto;display:flex;flex-direction:column;gap:14px}
+#script h1{margin:0;font-size:34px;letter-spacing:-.02em}
+#script .goal{color:var(--mute);font-size:17px;margin-top:-6px}
+.blk{border-radius:14px;padding:16px 20px}
+.blk h3{margin:0 0 8px;font-size:13px;letter-spacing:.09em;text-transform:uppercase}
+.say{background:#fff0f1}.say h3{color:var(--red)}
+.ask{background:var(--bg)}
+.tip{background:#1a1a1a;color:#fff}.tip h3{color:#ff8b98}
+.blk p,.blk li{font-size:19px;line-height:1.5;margin:0 0 6px}
+.blk ul{margin:0;padding-left:22px}
+.showrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.showrow span{color:var(--mute);font-size:14px;margin-right:4px}
+.show{background:var(--red);color:#fff;border-radius:100px;padding:11px 18px;font-weight:700;font-size:15px}
+.show:hover{filter:brightness(.92)}
+.nav{display:flex;gap:10px;margin-top:auto}
+.btn{background:var(--ink);color:#fff;border-radius:14px;padding:14px 22px;font-weight:700;font-size:16px}
+.btn.light{background:var(--bg);color:var(--ink)}
+.btn.red{background:var(--red);flex:1}
+/* right: lead */
+#lead{overflow:auto}
+#lead h2{margin:0 0 12px;font-size:20px}
+#lead label{display:block;font-size:12.5px;font-weight:700;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;margin:12px 0 5px}
+#lead textarea,#lead select,#lead input{width:100%;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font-size:16px;background:#fff;resize:vertical}
+#lead textarea{min-height:68px}
+#lead textarea:focus,#lead select:focus,#lead input:focus{outline:0;border-color:var(--red)}
+.pk{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pk button{border:2px solid var(--line);border-radius:12px;padding:10px;text-align:left;font-size:14px}
+.pk button b{display:block;font-size:17px}
+.pk button.on{border-color:var(--red);background:#fff0f1}
+.pk button.dis{opacity:.45;cursor:not-allowed}
+.st{display:flex;gap:6px;flex-wrap:wrap}
+.st button{background:var(--bg);border-radius:100px;padding:8px 13px;font-size:14px;font-weight:600}
+.st button.on{background:var(--ink);color:#fff}
+.st button.on.g{background:#1d9a4a}.st button.on.r{background:var(--red)}
+.slots{display:flex;align-items:center;gap:8px;margin-top:6px}
+.slots button{background:var(--bg);width:36px;height:36px;border-radius:10px;font-size:20px;font-weight:700}
+.slots b{font-size:18px;min-width:70px;text-align:center}
+.copy{width:100%;margin-top:16px}
+/* bottom: objections */
+#obj{grid-column:1/4}
+#obj h2{margin:0 0 10px;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{background:var(--bg);border-radius:100px;padding:10px 16px;font-size:15px;font-weight:600}
+.chips button.on{background:var(--red);color:#fff}
+#oans{margin-top:12px;background:var(--ink);color:#fff;border-radius:14px;padding:16px 20px;font-size:19px;line-height:1.5;display:none}
+#oans b{color:#ff8b98;display:block;font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:4px}
+#oans p{margin:0 0 6px}
+@media (max-width:1100px){#app{grid-template-columns:1fr;grid-template-rows:auto;height:auto}#top{grid-column:1}#obj{grid-column:1}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="top">
+    <b>Baipket · Сату пульті</b>
+    <input id="name" placeholder="Лидтің аты">
+    <span class="sp"></span>
+    <span class="pill ghost" id="conn">сахна: жоқ</span>
+    <span id="clock">00:00</span>
+    <button class="pill" id="open">Сахнаны ашу ↗</button>
+    <button class="pill ghost" id="reset">Жаңа лид</button>
+  </div>
+  <div class="card" id="stages"></div>
+  <div class="card" id="script"></div>
+  <div class="card" id="lead">
+    <h2>Лид карточкасы</h2>
+    <label>Қазіргі нәтижесі (сан, факт)</label><textarea id="f_now" placeholder="Мысалы: айына 3 клиент, 600 000 ₸"></textarea>
+    <label>Не қалайды (3–6 айда)</label><textarea id="f_goal"></textarea>
+    <label>Негізгі кедергі</label><textarea id="f_block"></textarea>
+    <label>Диагностика: профиль / сәйкестік</label><input id="f_diag" placeholder="Маркетолог · 88%">
+    <label>Ұсынатын пакет</label>
+    <div class="pk" id="pk">
+      <button data-p="Standard"><b>Standard</b>620 000 ₸</button>
+      <button data-p="Pro"><b>Pro</b>920 000 ₸</button>
+      <button class="dis" disabled><b>Partner</b>SOLD OUT</button>
+    </div>
+    <label>Орын (Pre-Sales)</label>
+    <div class="slots"><button id="sm">−</button><b id="sn">10 / 10</b><button id="sp">+</button></div>
+    <label>Шешім</label>
+    <div class="st" id="st">
+      <button data-s="Төледі" class="g">Төледі</button>
+      <button data-s="24 сағат">24 сағат</button>
+      <button data-s="Ойланады">Ойланады</button>
+      <button data-s="Бас тартты" class="r">Бас тартты</button>
+    </div>
+    <button class="btn light copy" id="copy">Қорытындыны көшіру (CRM-ға)</button>
+  </div>
+  <div class="card" id="obj">
+    <h2>Қарсылықтар: бас та, жауап оқы</h2>
+    <div class="chips" id="chips"></div>
+    <div id="oans"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const CH = (() => { try { return new BroadcastChannel('baipket-live'); } catch { return null; } })();
+const send = (c) => { try { CH && CH.postMessage(c); } catch {} };
+
+/* сахна индекстері: live/index.html */
+const SC = { open: 0, who: 1, pains: 2, levels: 3, calc: 4, accel: 5, program: 6, rhythm: 7, presales: 8, bonus: 9, guarantee: 10, top5: 11, final: 12 };
+
+const STAGES = [
+  { t: 'Ашылу және рамка', min: 2, goal: 'Лидпен келісім алу: не болатынын айтып, рұқсат сұрау.',
+    show: [['Ашылу', SC.open]],
+    say: ['Сәлеметсіз бе, {name}! Мен Baipket Academy-денмін. Қосылғаныңызға рахмет.',
+          'Бүгін 20 минут өткіземіз. Алдымен сіздің қазіргі нәтижеңіз бен мақсатыңызды сұраймын. Сосын қысқа диагностика көрсетемін. Соңында Акселерация сізге сәйкес пе, жоқ па, бірге шешеміз.',
+          'Осылай жүре ме? Сұрақтар қойсам болады ма?'],
+    ask: [], tip: ['Рамкаға «иә» дегізіп ал. Сол «иә» кейін сенің сұрақтарыңа рұқсат болады.', 'Тек қазақша сөйле, терминдерді қарапайым айт.'] },
+  { t: 'Нәтиже мен мақсат', min: 4, goal: 'Лидтің қазіргі нәтижесін және қалауын санмен жазып алу.',
+    show: [['Кім екенін таңдау', SC.who]],
+    say: ['Енді сізді жақынырақ білейін. Мен сұрайын, сіз еркін айта беріңіз.'],
+    ask: ['Қазір не істейсіз? Қай салада жұмыс істейсіз?', 'Соңғы 3 айдағы нақты нәтижеңіз қандай? (табыс, клиент саны, оборот)', '3–6 айдан кейін нені қалайсыз? Нақты қандай сан?', 'Осыған дейін не істеп көрдіңіз? Қайсысы жұмыс істеді, қайсысы істемеді?'],
+    tip: ['Жауаптарын оң жақтағы карточкаға сандармен жаз.', 'Үзбе. Жауап біткенде 3 секунд үнсіз тұр, лид өзі толықтырады.'] },
+  { t: 'Мәселені тереңдету', min: 3, goal: 'Лид мәселені өзі айтсын және оның бағасын сезінсін.',
+    show: [['4 мәселе', SC.pains]],
+    say: ['Бұл мәселелердің көбі білімнің жоқтығынан емес, жүйенің жоқтығынан болады. Мына төртеуінің қайсысы сізге таныс?'],
+    ask: ['Бұл қанша уақыттан бері солай?', 'Осы себепті не жоғалтып жатырсыз? (ақша, уақыт, клиент)', 'Егер 6 айдан кейін де осылай қала берсе, қандай болады?'],
+    tip: ['Лид өз сөзімен айтқан мәселені жаз. Оффер кезінде дәл сол сөздерді қайтарасың.'] },
+  { t: 'Диагностика', min: 3, goal: 'Лид өзін бағалайды, сәйкестік индексі шығады.',
+    show: [['Деңгей', SC.levels], ['Есеп', SC.calc]],
+    say: ['Енді өзіңізді 1-ден 5-ке дейін бағалаңыз: ойлау, практика, нәтиже. Практика дегеніміз, не білетініңізді қолмен істей алу.', 'Шеше алмай жатсаңыз, мен экрандағы батырманы басамын, жүйе ең жиі кездесетін жауапты көрсетеді.'],
+    ask: ['Нәтиже шықты. Осы сізге қаншалықты дұрыс көрінеді?', 'Ең әлсіз жеріңіз қайсы екен? Неге?'],
+    tip: ['Шеше алмаса сахнада A басасың (Авто).', 'Айт: бұл нәтижеге кепілдік емес, жауаптарға негізделген бағдар.', 'Индексті карточкаға жаз.'] },
+  { t: 'Шешім: Акселерация', min: 3, goal: 'Курс емес, жүйе екенін түсіндіру. Лидтің мәселесін программамен байлау.',
+    show: [['Акселерация', SC.accel], ['Программа', SC.program], ['Как проходит', SC.rhythm]],
+    say: ['Акселерация курс емес, өсуді жылдамдататын жүйе: ойлау, практика, нәтиже.', '8 апта оқисыз, аптасына 3 эфир: бастапқа трекермен, бейсенбі не жұма куратормен, сенбі Акс ағаймен.', 'Әр апта соңында өз жұмысыңызға керек нәрсе жасайсыз: жоспар, кесте, есеп. Үлгермесеңіз де, қай жерден тоқтағаныңызды қарап, әрі қарай жоспар береміз.', 'Топта ең көбі 18–20 адам, сондықтан әр адамға назар бар.'],
+    ask: ['Сіздің {block} мәселеңізді қай апта шешер еді деп ойлайсыз?'],
+    tip: ['Лид айтқан мәселені (карточкадан) программаның нақты бөлімімен қос.', 'Бағдарламадағы «твой разрыв» белгісі ең әлсіз оське сай.'] },
+  { t: 'Оффер', min: 4, goal: 'Бағаны, скидканы және шектеуді ашық, сенімді көрсету.',
+    show: [['Pre-Sales бағалар', SC.presales], ['Бонустар', SC.bonus]],
+    say: ['Pre-Sales ұсыныс тек алғашқы 10 адамға немесе 10.11-ге дейін.', 'Pre-Sales-та 100 000 теңге скидка бар. «Коммерческий интеллект» өзіңізге ашылады, ал досыңызға да қолжетімділік ашып бере аламыз.', '24 сағаттың ішінде толық төлесеңіз, аптасына 1 рет трекермен жалпы созвон болады. Топтық формат, кем дегенде 5 адам жиналуы керек.'],
+    ask: ['Мына екі пакеттің қайсысы сіздің мақсатыңызға көбірек сай?'],
+    tip: ['Бағаны айтқаннан кейін үнсіз тұр.', 'Орын санын шын жаңартып отыр (оң жақта − / +).', 'Partner SOLD OUT, оны сатпа.'] },
+  { t: 'Гарантия және жабу', min: 3, goal: 'Қорқынышты алып тастап, нақты шешім алу.',
+    show: [['Гарантия', SC.guarantee], ['Топ-5 және жаңа', SC.top5], ['Финал', SC.final]],
+    say: ['Курстың соңында ең болмаса бір тақырыпты практикада қолдана алмасаңыз, ақшаңызды қайтарамыз.', 'Жалғастырғыңыз келмесе де, өткен бөлікке қарай қайтарып береміз. Бұл шарт келісімшартқа жазылған.', 'Үздік 5 жобаға жағдай жасаймыз, трекинг болады, сосын +1 ай бонус беріледі.'],
+    ask: ['Сонымен, бүгін тіркелейік пе?', 'Қайсысын таңдайсыз: Standard па, Pro ма?'],
+    tip: ['Сұрақ қойып, үнсіз күт. Бірінші сөйлеген адам ұтылады.', 'Қарсылық айтса, төмендегі пернелерден жауап оқы.', 'Шешімді оң жақтан белгіле.'] },
+];
+
+const OBJ = [
+  ['Қымбат екен', ['Түсінемін. Сұрайын: нені салыстырып тұрсыз? Басқа курспен бе, әлде қазіргі шығынмен бе?', 'Мұнда тек видеосабақ жоқ: апта сайын 3 эфир, куратор мен трекер, әр апта соңында нақты жұмыс. Сонымен қатар Pre-Sales-та 100 000 ₸ скидка бар және гарантия бар.', 'Қазіргі мәселеңіз ({block}) сізге айына қанша тұрады деп ойлайсыз?']],
+  ['Ойланып көремін', ['Әрине. Нені нақты ойланасыз: бағаны ма, уақытты ма, нәтижені ме?', 'Pre-Sales тек 10.11-ге дейін немесе алғашқы 10 адамға. Қазір {slots} орын қалды. Бүгін шешсеңіз скидка мен бонус сақталады.', 'Қай күні жауап бересіз? Мен сол күні хабарласайын.']],
+  ['Уақытым жоқ', ['Курс 8 апта, аптасына 3 эфир. Эфирге дейін сабақты алдын ала көресіз, эфир кезінде тапсырма аласыз.', 'Үлгермесеңіз де, қай жерден тоқтағаныңызды қарап, әрі қарай жоспар береміз. Артефакт сіздің жұмысыңыздың өзі болады, қосымша жүк емес.', 'Аптасына нақты қанша сағат бөле аласыз?']],
+  ['Нәтиже болмаса ше?', ['Сондықтан гарантия бар: курстың соңында ең болмаса бір тақырыпты практикада қолдана алмасаңыз, ақшаңызды қайтарамыз.', 'Жалғастырғыңыз келмесе де, өткен бөлікке қарай қайтарамыз. Бұл шарт келісімшартта жазылған.', 'Сізге нәтиже деп нені санайсыз? Соны бірге нақтылайық.']],
+  ['Ақылдасамын', ['Әрине, бұл дұрыс. Олар не сұрайды деп ойлайсыз?', 'Қосылып тұруын сұрайық па? Сіздің кіріп, бірге сұрақ қоюыңызға болады.', 'Pre-Sales-та досыңызға да «Коммерческий интеллект» қолжетімділігін аша аламыз.']],
+  ['Басқа курс көмектеспеді', ['Түсінемін, бұл жиі болады. Не көмектеспеді: теория көп болды ма, әлде практика мен кері байланыс жетпеді ме?', 'Бізде әр апта сайын факт қабылданады: әркімге 3 минут, не істедің, қандай нәтиже. Сосын не істеу керектігін айтамыз.', 'Мұнда кураторлық пен трекинг бар, сондықтан жалғыз қалмайсыз.']],
+];
+
+/* ---------------- state ---------------- */
+const KEY = 'baipket-sales-v1';
+let S = { cur: 0, name: '', now: '', goal: '', block: '', diag: '', pack: '', status: '', slots: 10, t0: Date.now(), st0: Date.now(), st: STAGES.map(() => 0) };
+try { Object.assign(S, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+const fill = (t) => t.replace('{name}', S.name ? S.name : 'сіз').replace('{block}', S.block ? '«' + S.block + '»' : 'негізгі').replace('{slots}', S.slots);
+const mm = (s) => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+
+/* ---------------- render ---------------- */
+function renderStages() {
+  $('#stages').innerHTML = STAGES.map((g, i) => {
+    const sp = i === S.cur ? S.st[i] + (Date.now() - S.st0) / 1000 : S.st[i];
+    const over = sp > g.min * 60;
+    return `<button class="stg ${i === S.cur ? 'cur' : ''} ${i < S.cur ? 'done' : ''} ${over ? 'over' : ''}" data-i="${i}"><span class="n">${i + 1}</span><span><b>${g.t}</b><small>${mm(sp)} / ${g.min} мин</small></span></button>`;
+  }).join('');
+}
+function renderScript() {
+  const g = STAGES[S.cur];
+  const list = (a, tag) => a.length ? `<ul>${a.map((x) => `<li>${fill(x)}</li>`).join('')}</ul>` : '';
+  $('#script').innerHTML = `<h1>${S.cur + 1}. ${g.t}</h1><div class="goal">${g.goal}</div>
+    <div class="showrow"><span>Экранға шығару:</span>${g.show.map(([n, i]) => `<button class="show" data-go="${i}">${n} →</button>`).join('')}</div>
+    <div class="blk say"><h3>Айтамыз</h3>${g.say.map((x) => `<p>${fill(x)}</p>`).join('')}</div>
+    ${g.ask.length ? `<div class="blk ask"><h3>Сұраймыз</h3>${list(g.ask)}</div>` : ''}
+    <div class="blk tip"><h3>Есте сақта</h3>${list(g.tip)}</div>
+    <div class="nav"><button class="btn light" id="prev">← Артқа</button><button class="btn red" id="next">${S.cur < STAGES.length - 1 ? 'Келесі кезең →' : 'Қоңырауды аяқтау'}</button></div>`;
+}
+function renderLead() {
+  $('#name').value = S.name; $('#f_now').value = S.now; $('#f_goal').value = S.goal; $('#f_block').value = S.block; $('#f_diag').value = S.diag;
+  $$('#pk button[data-p]').forEach((b) => b.classList.toggle('on', b.dataset.p === S.pack));
+  $$('#st button').forEach((b) => b.classList.toggle('on', b.dataset.s === S.status));
+  $('#sn').textContent = `${S.slots} / 10`;
+}
+function setStage(i) {
+  i = Math.max(0, Math.min(STAGES.length - 1, i));
+  S.st[S.cur] += (Date.now() - S.st0) / 1000; S.st0 = Date.now(); S.cur = i; save(); renderStages(); renderScript();
+}
+
+/* ---------------- events ---------------- */
+document.addEventListener('click', (e) => {
+  const sg = e.target.closest('.stg'); if (sg) return setStage(+sg.dataset.i);
+  const go = e.target.closest('[data-go]'); if (go) return send({ cmd: 'go', i: +go.dataset.go });
+  if (e.target.closest('#next')) return setStage(S.cur + 1);
+  if (e.target.closest('#prev')) return setStage(S.cur - 1);
+  const pk = e.target.closest('#pk button[data-p]'); if (pk) { S.pack = S.pack === pk.dataset.p ? '' : pk.dataset.p; save(); return renderLead(); }
+  const st = e.target.closest('#st button'); if (st) { S.status = S.status === st.dataset.s ? '' : st.dataset.s; save(); return renderLead(); }
+  if (e.target.closest('#sm')) { S.slots = Math.max(0, S.slots - 1); send({ cmd: 'slots', d: -1 }); save(); return renderLead(); }
+  if (e.target.closest('#sp')) { S.slots = Math.min(10, S.slots + 1); send({ cmd: 'slots', d: 1 }); save(); return renderLead(); }
+  if (e.target.closest('#open')) return void window.open('index.html', 'baipket-stage');
+  if (e.target.closest('#reset')) {
+    if (!confirm('Жаңа лид: карточка тазаланады. Жалғастырасыз ба?')) return;
+    S = { cur: 0, name: '', now: '', goal: '', block: '', diag: '', pack: '', status: '', slots: S.slots, t0: Date.now(), st0: Date.now(), st: STAGES.map(() => 0) };
+    save(); send({ cmd: 'reset' }); renderLead(); renderStages(); renderScript(); return;
+  }
+  if (e.target.closest('#copy')) {
+    const txt = `Лид: ${S.name || '-'}\nҚазіргі нәтиже: ${S.now || '-'}\nМақсат: ${S.goal || '-'}\nКедергі: ${S.block || '-'}\nДиагностика: ${S.diag || '-'}\nПакет: ${S.pack || '-'}\nШешім: ${S.status || '-'}\nҰзақтығы: ${mm((Date.now() - S.t0) / 1000)}`;
+    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => { $('#copy').textContent = 'Көшірілді ✓'; setTimeout(() => $('#copy').textContent = 'Қорытындыны көшіру (CRM-ға)', 1800); }).catch(() => prompt('Көшіріп ал:', txt));
+    return;
+  }
+  const ch = e.target.closest('#chips button'); if (ch) {
+    const on = ch.classList.contains('on'); $$('#chips button').forEach((b) => b.classList.remove('on'));
+    const box = $('#oans');
+    if (on) { box.style.display = 'none'; return; }
+    ch.classList.add('on'); const o = OBJ[+ch.dataset.i];
+    box.innerHTML = `<b>${o[0]}</b>` + o[1].map((x) => `<p>${fill(x)}</p>`).join(''); box.style.display = 'block';
+  }
+});
+const bind = (id, k) => $(id).addEventListener('input', (e) => { S[k] = e.target.value; save(); if (k === 'name' || k === 'block') renderScript(); });
+bind('#name', 'name'); bind('#f_now', 'now'); bind('#f_goal', 'goal'); bind('#f_block', 'block'); bind('#f_diag', 'diag');
+addEventListener('keydown', (e) => {
+  if (/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  if (e.key === 'ArrowRight') setStage(S.cur + 1); if (e.key === 'ArrowLeft') setStage(S.cur - 1);
+  if (e.key === ' ') { e.preventDefault(); send({ cmd: 'next' }); }
+});
+
+/* ---------------- stage link ---------------- */
+let seen = 0;
+if (CH) CH.onmessage = (e) => {
+  const d = e.data; if (!d || d.type !== 'state') return; seen = Date.now();
+  $('#conn').textContent = 'сахна: ' + (d.idx + 1) + '/13'; $('#conn').style.background = '#fff'; $('#conn').style.color = '#e4001b';
+  if (typeof d.slots === 'number' && d.slots !== S.slots) { S.slots = d.slots; save(); $('#sn').textContent = `${S.slots} / 10`; }
+  if (d.profile && !S.diag) { S.diag = d.profile + ' · ' + d.match + '%'; save(); $('#f_diag').value = S.diag; }
+};
+setInterval(() => { $('#clock').textContent = mm((Date.now() - S.t0) / 1000); renderStagesLight(); if (Date.now() - seen > 4000) { $('#conn').textContent = 'сахна: жоқ'; $('#conn').style.background = ''; $('#conn').style.color = ''; send({ cmd: 'hello' }); } }, 1000);
+function renderStagesLight() {
+  const cur = $('.stg.cur small'); if (!cur) return; const g = STAGES[S.cur], sp = S.st[S.cur] + (Date.now() - S.st0) / 1000;
+  cur.textContent = `${mm(sp)} / ${g.min} мин`; $('.stg.cur').classList.toggle('over', sp > g.min * 60);
+}
+
+$('#chips').innerHTML = OBJ.map((o, i) => `<button data-i="${i}">${o[0]}</button>`).join('');
+renderLead(); renderStages(); renderScript(); send({ cmd: 'hello' });
+})();
+</script>
+</body>
+</html>
